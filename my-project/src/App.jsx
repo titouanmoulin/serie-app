@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useState, useEffect } from "react";
 import useFetch from './hook/useFetch'
 
@@ -16,19 +15,11 @@ export default function App() {
       setApiUrl(`https://api.tvmaze.com/singlesearch/shows?q=${searchSerie}`);
     }
   }, [searchSerie]);
-=======
-import { useState } from "react";
-import useFetch from './hook/useFetch'
-
-export default function App() {
-  // const [searchSerie, setSearchSerie] = useState("breaking bad");
->>>>>>> main
 
   const {
     data: showData,
     isLoading: isLoadingShow,
     error: showError,
-<<<<<<< HEAD
   } = useFetch(apiUrl);
 
   useEffect(() => {
@@ -46,31 +37,10 @@ export default function App() {
         onChange={inputHandler} 
       />
       {isLoadingShow && <h1>Loading...</h1>}
-      {showError && <h1>Pas de résultats</h1>}
-      <div>
+      {showError && <h1>Error fetching data</h1>}
+      {/* <div>
         <img src={showData.image.medium} alt={showData.name} />
-      </div>
+      </div> */}
     </div>
   )
 }
-
-=======
-  } = useFetch('https://api.tvmaze.com/singlesearch/shows?q="breaking bad"');
-
-  console.log(showData);
-  
-  if (isLoadingShow) {
-    return (
-      <div>
-        <h1>Loading...</h1>
-      </div>
-    )
-  }
-
-  return (
-
-    <div>
-    </div>
-  )
-}
->>>>>>> main
