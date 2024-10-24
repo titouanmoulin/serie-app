@@ -2,30 +2,21 @@ import { useState, useEffect } from "react";
 import useFetch from './hook/useFetch'
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
-
-
+import Movie from './Movie.jsx'
 
 export default function App() {
-  const searchserieurl = "https://api.tvmaze.com/singlesearch/shows?q="
-  const [searchSerie, setSearchSerie] = useState(searchserieurl +"squid game");
-
-  let handlerSubmit = (e) => {
-    e.preventDefault();
-    const filmUrl = new FormData(e.target).get("film");
-    setSearchSerie(searchserieurl + filmUrl)
-  };
-
-
+  const serieurl = "https://api.tvmaze.com/shows/1?embed[]=episodes&embed[]=images"
+  
   const {
     data: showData,
     isLoading: isLoadingShow,
     error: showError,
-  } = useFetch(searchSerie);
+  } = useFetch(serieurl);
 
   return (
     <>
 
-      <form onSubmit={handlerSubmit}>
+      {/* <form onSubmit={handlerSubmit}>
         <input
           className="border-black border-2"
           type="text"
@@ -36,10 +27,6 @@ export default function App() {
         <Button type="submit"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
           <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
         </svg></Button>
-        {/* <button type="submit"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-        </svg>
-        </button> */}
       </form>
       <div>
         {isLoadingShow && <Skeleton className="w-[100px] h-[20px] rounded-full" />}
@@ -51,8 +38,8 @@ export default function App() {
           </div>
         }
         {showError && <Skeleton className="w-[100px] h-[20px] rounded-full" />}
-      </div>
-
+      </div> */}
+      <Movie movie={showData}/>
 
     </>
   )
