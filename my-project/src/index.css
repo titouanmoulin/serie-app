@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+
+    @font-face {
+      font-family: 'Heavitas';
+      src: local('Heavitas'), url(./font/Heavitas.ttf) format('ttf');
+    }
+  
+    :root{
+      /* variable primitives */
+
+    }
+  
+  }
