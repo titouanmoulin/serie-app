@@ -50,7 +50,3 @@ export default function App() {
     </>
   )
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 0d693197c68edf19970f1b81d771f54be7004dc6
