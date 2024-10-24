@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import useFetch from './hook/useFetch'
 import { Button } from "@/components/ui/button"
+import { Skeleton } from "@/components/ui/skeleton"
+
 
 
 export default function App() {
@@ -40,7 +42,7 @@ export default function App() {
         </button> */}
       </form>
       <div>
-        {isLoadingShow && <p>isloading</p>}
+        {isLoadingShow && <Skeleton className="w-[100px] h-[20px] rounded-full" />}
         {showData &&
           <div>
             <div>
@@ -48,7 +50,7 @@ export default function App() {
             </div>
           </div>
         }
-        {showError && <p>non</p>}
+        {showError && <Skeleton className="w-[100px] h-[20px] rounded-full" />}
       </div>
 
 
