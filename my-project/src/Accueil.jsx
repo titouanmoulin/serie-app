@@ -24,14 +24,7 @@ export default function Accueil({ setPage }) {
 
     return (
         <div>
-            <h1>Bonjour la team</h1>
             <Button onClick={handleClick}>Serie</Button>
-            {movie.map((serie, index) => (
-                <img key={index} src={serie.image.original} alt="" />
-            ))}
-            {/* <p>{movie[0].name}</p>
-            <img src={movie[0].image.medium} alt="" /> */}
-
         </div>
     );
 }

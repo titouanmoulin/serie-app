@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { Badge } from "@/components/ui/badge"
 import Episode from './Episode.jsx'
 import useFetch from './hook/useFetch'
@@ -9,7 +8,6 @@ export default function Movie({ idserie, setPage }) {
         setPage("accueil");
     };
 
-    // console.log(movie)
     const serieurl = `https://api.tvmaze.com/shows/${idserie}?embed[]=episodes&embed[]=images`;
 
     const {
