@@ -3,15 +3,30 @@ import useFetch from './hook/useFetch'
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 import Movie from './Movie.jsx'
+import Accueil from './Accueil.jsx'
 
 export default function App() {
-  const serieurl = "https://api.tvmaze.com/shows/1?embed[]=episodes&embed[]=images"
+  // const serieurl = "https://api.tvmaze.com/shows?embed[]=episodes&embed[]=images"
   
-  const {
-    data: showData,
-    isLoading: isLoadingShow,
-    error: showError,
-  } = useFetch(serieurl);
+  // const {
+  //   data: showData,
+  //   isLoading: isLoadingShow,
+  //   error: showError,
+  // } = useFetch(serieurl);
+
+  const [Page, setPage] = useState("accueil");
+
+  if (Page == "accueil") {
+    return (
+      <Accueil setPage={setPage}/>
+    )
+  }
+
+  else if (Page == "serie") {
+    return (
+      <Movie idserie={1} setPage={setPage}/>
+    )
+  }
 
   return (
     <>
@@ -39,7 +54,8 @@ export default function App() {
         }
         {showError && <Skeleton className="w-[100px] h-[20px] rounded-full" />}
       </div> */}
-      <Movie movie={showData}/>
+      {/* <Accueil/>
+      <Movie movie={showData}/> */}
 
     </>
   )
